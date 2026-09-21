@@ -36,8 +36,7 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header>
-          <span> Header</span>
+        <header className=" py-3 pl-2 bg-blue-100">
           <LanguageSwitcher />
         </header>
         <div>

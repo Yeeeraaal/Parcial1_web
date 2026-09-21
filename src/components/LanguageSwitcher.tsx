@@ -21,19 +21,21 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div>
+    <div className="flex items-center gap-2 p-2 bg-blue-200 rounded-lg w-fit">
       <Link 
         href={redirectedPathname('es')} 
         onClick={() => handleLanguageChange('es')}
+        className="px-3 py-1 font-medium bg-white-45 rounded-md shadow-sm hover:bg-blue-50 hover: text-gray-900 transition-colors border shadow-sm"
       >
-        Español (ES)
+        ES
       </Link>
-      {' | '}
+      
       <Link 
         href={redirectedPathname('en')} 
         onClick={() => handleLanguageChange('en')}
+        className="px-3 py-1 font-medium bg-white-55 rounded-md shadow-sm hover:bg-blue-50 hover: text-gray-900 transition-colors border shadow-sm"
       >
-        English (EN)
+        EN
       </Link>
     </div>
   )
