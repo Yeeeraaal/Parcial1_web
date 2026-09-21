@@ -7,6 +7,12 @@ let locales = ['es', 'en']
 let defaultLocale = 'es'
 
 function getLocale(request: NextRequest) {
+
+    const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value
+    if (cookieLocale && locales.includes(cookieLocale)) {
+        return cookieLocale
+    }
+
     const headers = { 'accept-language': request.headers.get('accept-language') || '' }
     const languages = new Negotiator({ headers }).languages()
     return match(languages, locales, defaultLocale)
@@ -21,13 +27,14 @@ export function proxy(request: NextRequest) {
     // Si no tiene un idioma usa el del navegador y redirige
     const locale = getLocale(request)
     request.nextUrl.pathname = `/${locale}${pathname}`
-    return NextResponse.redirect(request.nextUrl) }
+    return NextResponse.redirect(request.nextUrl)
+}
 
-    export const config = {
-  matcher: [
-    // Omite rutas internas de next
-    '/((?!_next|favicon.ico|.*\\.).*)',
-  ],
+export const config = {
+    matcher: [
+        // Omite rutas internas de next
+        '/((?!_next|favicon.ico|.*\\.).*)',
+    ],
 
 
 }
