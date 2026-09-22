@@ -52,18 +52,8 @@ export default async function Page() {
             </div>
 
 
-            {/* Nombre dinámico traído de la API */}
-            <h2 className="text-xl font-bold text-gray-800 capitalize mt-1 mb-4">
-              {raza.message}
-            </h2>
+  
 
-            
-            <Link
-              href={`/pokemon/${raza.message}`}
-              className="w-full mt-auto bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-xl text-center block"
-            >
-              detalle
-            </Link>
           </div>
         ))}
       </div>
