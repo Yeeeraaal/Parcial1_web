@@ -3,6 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import type LayoutProps from "next";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,12 +40,11 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header className=" py-3 pl-2 bg-blue-100">
-          <LanguageSwitcher />
-        </header>
-        <div>
-          {children}
-        </div>
+        <Header></Header>
+            <main>
+            {children}
+            </main>
+        <Footer></Footer>
       </body>
     </html>
   );
